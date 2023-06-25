@@ -1,7 +1,7 @@
 import { useEffect,useState,ReactNode } from 'react'
 import { ScorePopup } from '../components/scorePopup'
 import { useGame } from '../providers/gameProvider'
-import { type } from 'os'
+
 
 type popupLayoutType = {
   children:ReactNode
