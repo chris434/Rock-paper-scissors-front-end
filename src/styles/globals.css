@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.visible {
+    visibility: visible;
+}
+
+.opacity-25 {
+    opacity: 0.25;
+}
