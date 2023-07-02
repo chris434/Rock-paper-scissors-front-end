@@ -11,7 +11,7 @@ export function RestartButtons({onClick=() =>{}}) {
                     onClick()
                     joinGame()
                     changeGameStatus('searching')
-                }}>play agin</Button>
+                }}>play again</Button>
                 <Button onClick={() => {
                     resetGame()
                    onClick()
