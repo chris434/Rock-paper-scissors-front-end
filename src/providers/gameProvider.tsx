@@ -1,7 +1,8 @@
 import { useContext, createContext, useEffect,useReducer,Dispatch,ReactNode } from "react";
 import { io } from 'socket.io-client'
 import { gameReducer } from '../reducers/gameReducer'
-import {gameStatusType,actionsType,gameDataType} from '../types/gameData'
+import { gameStatusType, actionsType, gameDataType } from '../types/gameData'
+import {SOCKET_URL} from '../urls/urls'
 
 
 type ProviderType = {
@@ -35,7 +36,6 @@ export function GameProvider({ children }:gameProviderType) {
 
     const [gameData,dispatch]=useReducer(gameReducer,initialData)
   useEffect(() => {
-const SOCKET_URL= process.env.NEXT_PUBLIC_SOCKET_URL||''
     const socket = io(SOCKET_URL)
   dispatch({type:'addSocket',payload:socket})
     runServer() 
