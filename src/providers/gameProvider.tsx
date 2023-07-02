@@ -34,8 +34,9 @@ const Provider = createContext<ProviderType>({ gameData: { ...initialData,gameSt
 export function GameProvider({ children }:gameProviderType) {
 
     const [gameData,dispatch]=useReducer(gameReducer,initialData)
- useEffect(() => {
-    const socket = io('https://rock-paper-scissors-socket-io.onrender.com/')
+  useEffect(() => {
+const SOCKET_URL= process.env.NEXT_PUBLIC_SOCKET_URL||''
+    const socket = io(SOCKET_URL)
   dispatch({type:'addSocket',payload:socket})
     runServer() 
 
