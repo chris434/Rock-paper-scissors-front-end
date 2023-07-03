@@ -18,7 +18,8 @@ const initialData = {
   socket: {},
   game: {
     allPlayed: false,
-    hasMadeMove: true,
+    opponentHasMadeMove: false,
+   currentUserHasMadeMove:false,
     winner:'',
     clientId: '',
     gameOver: false,
@@ -36,6 +37,7 @@ export function GameProvider({ children }:gameProviderType) {
 
     const [gameData,dispatch]=useReducer(gameReducer,initialData)
   useEffect(() => {
+
     const socket = io(SOCKET_URL)
   dispatch({type:'addSocket',payload:socket})
     runServer() 

@@ -4,7 +4,8 @@ export type gameStatusType = 'lobby' | 'searching' | 'found'|'disconnected'
 
 type gameType = {
         allPlayed:boolean
-        hasMadeMove: boolean,
+        opponentHasMadeMove: boolean,
+       currentUserHasMadeMove:boolean,
         winner:string,
         clientId: string
         gameOver: boolean
