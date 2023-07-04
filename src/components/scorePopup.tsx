@@ -2,7 +2,6 @@
 import { faHand, faHandRock, faHandScissors, faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useGame} from '../providers/gameProvider'
-import { Button } from './button'
 import {RestartButtons} from './restartButtons'
 
 
@@ -12,9 +11,9 @@ type scorePopupType = {
 }
 
 
-export function ScorePopup({setPopupOpen}:scorePopupType) {
+export function ScorePopup() {
     const ICONS = { rock: faHandRock, paper: faHand, scissors: faHandScissors }
-    const { gameData,changeGameStatus,resetGame,joinGame } = useGame()
+    const { gameData } = useGame()
     const { game } = gameData
     const {gameOver,winner,users,}=game
     
@@ -43,7 +42,7 @@ console.log(gameOver)
 
            })}
         </div>
-              {gameOver&& <RestartButtons onClick={()=>setPopupOpen(false)}/>}
+              {gameOver&& <RestartButtons/>}
        
       
     </div>

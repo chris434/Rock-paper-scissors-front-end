@@ -4,7 +4,7 @@ type buttonType = {
     onClick?: () => void
     children: ReactNode
     disabled?: boolean
-    selected: Boolean
+    selected?: Boolean
 }
 
 export function Button({ onClick, children, disabled, selected = false }: buttonType) {

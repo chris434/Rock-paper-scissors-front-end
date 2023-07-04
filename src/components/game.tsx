@@ -8,7 +8,7 @@ export function Game() {
 const [selectedMove,setSelectedMove]=useState('')
     const { gameData,playMove } = useGame()
     const {game}=gameData
-    const {opponentHasMadeMove,currentUserHasMadeMove}=game
+    const {opponentHasMadeMove,currentUserHasMadeMove,allPlayed}=game
     
     return <section className='h-[80vh] flex flex-col justify-between mt-10 mb-10 p-5 border-blue-500 sm:border-2'>
         <div>
@@ -27,7 +27,7 @@ const [selectedMove,setSelectedMove]=useState('')
        
         <div className="flex justify-between w-full gap-5 items-end">
             {MOVE_OPTIONS.map(move => {
-                return <Button selected={selectedMove===move&&currentUserHasMadeMove} disabled={currentUserHasMadeMove} onClick={() => {
+                return <Button selected={selectedMove===move&&currentUserHasMadeMove||selectedMove===move&&allPlayed} disabled={currentUserHasMadeMove||allPlayed} onClick={() => {
                     playMove(move)
                     setSelectedMove(move)
                 }} key={move} >{move}</Button>

@@ -28,7 +28,7 @@ export type gameDataType = {
     gameStatus: gameStatusType
     userNameError: string
     disconnectedMessage: string
-
+    popup:boolean
 }
 
 type action<T,U> = {
@@ -40,4 +40,4 @@ type resetAction = {
 }
 
 
-export type actionsType = action<'addSocket',object>|action<'addUserNameError',string>|action<'setGameStatus',gameStatusType>|action<'setGame',gameType>|action<'setUsername',string>|action<'opponentDisconnected',string>|resetAction;
+export type actionsType = action<'addSocket',object>|action<'addUserNameError',string>|action<'setGameStatus',gameStatusType>|action<'setGame',gameType>|action<'setUsername',string>|action<'opponentDisconnected',string>|action<'setPopup',boolean>|resetAction;

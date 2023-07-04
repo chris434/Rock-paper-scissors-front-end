@@ -28,7 +28,8 @@ const initialData = {
     username: '',
     gameStatus: 'lobby',
     userNameError: '',
-   disconnectedMessage:''
+  disconnectedMessage: '',
+   popup:false
 }
 
 
@@ -90,7 +91,7 @@ export function useGame() {
   function setUsername(username:string) {
   dispatch({type:'setUsername',payload:username})
   }
-  function resetGame() {
+   function resetGame() {
     dispatch({type:'resetGame'})
   }
 
@@ -107,11 +108,13 @@ export function useGame() {
      socket.emit('play-move', move )
   }
 
-  function resetRound() {
-   if('emit' in socket)
-      socket.emit('new-round')
+  function changePopup(value:boolean) {
+    dispatch({type:'setPopup',payload:value})
   }
+ 
+
+  
 
 
-  return {gameData,changeGameStatus,joinGame,resetRound,playMove,setUsername,resetGame}
+  return {gameData,changeGameStatus,joinGame,playMove,setUsername,resetGame,changePopup}
 }
